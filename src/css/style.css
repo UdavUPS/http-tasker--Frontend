@@ -1,0 +1,203 @@
+.box {
+    width: 90vw;
+    /* min-height: 30vw; */
+    padding-bottom: 1vw;
+    /* border: 1px solid black; */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    /* box-sizing: border-box; */
+/*     display: flex;
+    flex-wrap: nowrap; */
+}
+
+.boxF {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.box__addBut {
+    margin: 1vw 0.5vw  0.7vw 69vw;
+/*     margin-left: 69vw;
+    margin-right: 0.5vw;
+    margin-top: 1vw; */
+    width: 20vw;
+    height: 2vw;
+    border-radius: 15px;
+    font-size: 1.15vw;
+}
+
+/* &:hover {
+    background-color: #fff;
+} */
+
+.box__ticket {
+    border: 1px solid black;
+    width: 89vw;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 0.027vw;
+}
+
+.box__ticket__checker, .box__ticket__editor, .box__ticket__delete {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+}
+
+.box__ticket__editor {
+    background-image: url(../img/pencil.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 0.8vw;
+} 
+
+.box__ticket__delete {
+    background-image: url(../img/cross.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1.1vw;
+}
+
+.box__ticket__checker {
+    margin-left: 0.5vw;
+}
+
+.box__ticket__checkbox {
+    display: none;
+}
+
+.checker {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.box__ticket__checkbox:checked + .box__ticket__checker{
+    background-image: url(../img/checkbox.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 1vw;
+  }
+
+.box__ticket__editor {
+    font-size: 1.15vw;
+    box-sizing: border-box;
+    text-align: center;
+/*     vertical-align: bottom;
+    color: rgb(238, 245, 43); */
+}
+
+.box__ticket__delete {
+    margin-left: 0.5vw;
+    margin-right: 0.5vw;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.box__ticket__time {
+    margin: auto 1.5vw auto 0;
+    padding-left: 1.5vw;
+    font-size: 1.15vw;
+}
+
+.box__ticket__text {
+    padding-left: 0.5vw;
+    width: 80%;
+    font-size: 1.15vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+}
+
+/* описание окна show-message */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
+.messages-box {
+    /* border-radius: 15px; */
+    /* border: 1px solid black; */
+    /* margin: 0 0 0 0; */
+    /* box-sizing: border-box; */
+    /* z-index: 999; */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.show-message {
+    width: 50vw;
+    height: 30vw;
+    border-radius: 15px;
+    border: 1px solid black;
+    margin: 0.5vw auto auto auto;
+    box-sizing: border-box;
+    z-index: 1;
+    background-color: rgb(227, 226, 226);
+}
+
+.show-message__title {
+    /* padding: 0.5vw auto 0 auto; */
+    margin-top: 1vw;
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: bold;
+    margin-bottom: 0.5vw;;
+}
+
+.show-message__title-preview, .show-message__title-description {
+    padding-left: 1.5vw;
+    font-size: 1.15vw;
+    margin-bottom: 0.5vw;;
+}
+
+.show-message__preview, .show-message__description {
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    min-width: 95%;
+    max-width: 95%;
+    padding: 0.5vw;
+    box-sizing: border-box;
+    margin-bottom: 1vw;
+    font-size: 1.15vw;
+}
+
+.show-message__description {
+    min-height: 25%;
+    height: 40%;
+    max-height: 50%;
+}
+
+.show-message__But-remov, .show-message__But-ok {
+    /* margin: 1vw 0.5vw  0.7vw 69vw; */
+/*     margin-left: 69vw;
+    margin-right: 0.5vw;
+    margin-top: 1vw; */
+    
+    width: 15vw;
+    height: 2.1vw;
+    border-radius: 15px;
+    font-size: 1.15vw;
+}
+
+.show-message__But-remov {
+    margin-left: calc(98% - 31vw);
+}
