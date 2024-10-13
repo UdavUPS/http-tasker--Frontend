@@ -53,6 +53,9 @@
     flex-wrap: wrap;
     margin-bottom: 0.027vw;
 }
+.box__ticket__id {
+    display: none;
+}
 .box__ticket__description {
     /* flex-basis: 100%; */
     /* border: 1px solid red; */

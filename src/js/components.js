@@ -1,8 +1,14 @@
-export function ticketCreate(text, time, status = false, description) {
+import { createTicket, delTicket } from './xhr.js';
+
+export function ticketCreate(i, text, time, status = false, description) {
     const box = document.querySelector('.boxF');
 
     const ticket = document.createElement('div');
     ticket.classList.add('box__ticket');
+
+    const id= document.createElement('div');
+    id.classList.add('box__ticket__id');
+    id.innerText = i;
 
     const label = document.createElement('label');
     label.classList.add('checker');
@@ -38,6 +44,7 @@ export function ticketCreate(text, time, status = false, description) {
 
     label.appendChild(checkbox);
     label.appendChild(checker);
+    ticket.appendChild(id);
     ticket.appendChild(label);
     ticket.appendChild(textO);
     ticket.appendChild(timeO);
@@ -65,7 +72,7 @@ export class Messages {
         this.height = 2.1 +'vw'
     }
 
-    /* static */ centralBlock(name) {
+    centralBlock(name, id) {
 
         if (name) {
             this.title = name;
@@ -91,14 +98,15 @@ export class Messages {
         
             titlePreview.innerText = 'Краткое описание';
 
-            let preview = document.createElement('input');
+            var preview = document.createElement('input');
             preview.classList.add('show-message__preview');
+            /* preview.value = 'asdsadsd'; */
             
             let titleDescription = document.createElement('div');
             titleDescription.classList.add('show-message__title-description');
             titleDescription.innerText = 'Подробное описание';
             
-            let description = document.createElement('textarea');
+            var description = document.createElement('textarea');
             description.classList.add('show-message__description');
 
             common.append(titlePreview);
@@ -125,6 +133,21 @@ export class Messages {
         let ButOk = document.createElement('button');
         ButOk.classList.add('show-message__But-ok');
         ButOk.innerText = 'Ok';
+        ButOk.addEventListener('click', () => {
+            /* console.log('ок'); */
+            if (this.title == 'Добавить тикет') {
+                /* createTicket(name, description, status) */
+                createTicket(preview.value, description.value, false);
+                /* console.log('Добавить тикет'); */
+            };
+            if (this.title == 'Изменить тикет') {
+                console.log('Изменить тикет');
+            };
+            if (this.title == 'Удалить тикет') {
+                delTicket(id);
+                /* console.log('Удалить тикет'); */
+            }
+        });
         
 
 

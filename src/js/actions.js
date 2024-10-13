@@ -9,8 +9,8 @@ const Win = new Messages();
 window.addEventListener('load', ()=>{detAllTickets()});
 
 
-ticketCreate('Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15', true, 'Тест описания карточки');
-/* ticketCreate('Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15); */
+ticketCreate(123, 'Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15', true, 'Тест описания карточки');
+/* ticketCreate(123, 'Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15); */
 
 
 
@@ -27,7 +27,8 @@ box.addEventListener('click', (e) => {
     }
     if (e.target.classList.contains('box__ticket__delete')) {
         messagesBox.classList.remove('visually-hidden');
-        messagesBox.append(Win.centralBlock());
+        let box = e.target.parentElement;
+        messagesBox.append(Win.centralBlock(undefined ,box.querySelector('.box__ticket__id').innerText));
     }
 
     if (e.target.classList.contains('box__ticket__text')) {

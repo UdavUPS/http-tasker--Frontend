@@ -29,7 +29,7 @@ function responseHandler() {
 
 
 
-export function detAllTickets () {
+export function detAllTickets() {
     xhr.open('GET', 'http://localhost:7070/?method=allTickets');
     /* xhr.setRequestHeader('Content-Type', 'application/json'); */
     xhr.send();
@@ -40,11 +40,35 @@ export function detAllTickets () {
         a.forEach(e => {
             let d = new Date(e.created);
             let m = add0(d.getUTCDate()) +"."+ add0((d.getUTCMonth()+1)) +"."+ dataChanger(d.getUTCFullYear()) + ' ' + add0(d.getUTCHours()) + ":" + add0(d.getUTCMinutes());
-            ticketCreate(e.name, m, e.status, e.description);
+            ticketCreate(e.id, e.name, m, e.status, e.description);
         });
     });
 }
 
+export function createTicket(name, description, status) {
+    let Ticket = {
+        id: null,
+        name,
+        description,
+        status,
+        created: null
+    }
+
+    let tickJson = JSON.stringify(Ticket);
+    xhr.open('POST', 'http://localhost:7070/?method=createTicket');
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(tickJson);
+    console.log(tickJson);
+    location.reload();
+}
+
+export function delTicket(id) {
+    /* console.log(id); */
+    let i = id;
+    xhr.open('GET', 'http://localhost:7070/?method=deleteById&id=' + id);
+    xhr.send();
+    location.reload();
+}
 
 
 
