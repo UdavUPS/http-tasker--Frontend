@@ -70,5 +70,35 @@ export function delTicket(id) {
     location.reload();
 }
 
+export function refreshStatusTicket(id, status) {
+    let Ticket = {
+        status
+    }
 
+    if (status) {
+        Ticket.status = false;
+    } else {
+        Ticket.status = true;
+    }
+    let tickJson = JSON.stringify(Ticket);
+    xhr.open('POST', 'http://localhost:7070/?method=updateById&id=' + id);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(tickJson);
+    console.log(xhr.response);
+    location.reload();
+}
+
+export function refreshAllTicket(id, name, description) {
+
+    let Ticket = {
+        name,
+        description,
+    }
+    let tickJson = JSON.stringify(Ticket);
+    xhr.open('POST', 'http://localhost:7070/?method=updateById&id=' + id);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(tickJson);
+    console.log(xhr.response);
+    location.reload();
+}
 

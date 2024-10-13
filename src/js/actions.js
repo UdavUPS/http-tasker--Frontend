@@ -1,5 +1,5 @@
 import { ticketCreate, Messages, showTicketDescription } from './components.js';
-import { detAllTickets } from './xhr.js';
+import { detAllTickets, refreshStatusTicket } from './xhr.js';
 const messagesBox = document.querySelector('.messages-box');
 const butAddTick = document.querySelector('.box__addBut');
 const box= document.querySelector('.box');
@@ -23,7 +23,9 @@ box.addEventListener('click', (e) => {
     /* console.log(e.target); */
     if (e.target.classList.contains('box__ticket__editor')) {
         messagesBox.classList.remove('visually-hidden');
-        messagesBox.append(Win.centralBlock('Изменить тикет'));
+        let box = e.target.parentElement;
+        let i = box.querySelector('.box__ticket__id').innerText;
+        messagesBox.append(Win.centralBlock('Изменить тикет', i));
     }
     if (e.target.classList.contains('box__ticket__delete')) {
         messagesBox.classList.remove('visually-hidden');
@@ -33,6 +35,15 @@ box.addEventListener('click', (e) => {
 
     if (e.target.classList.contains('box__ticket__text')) {
         showTicketDescription(e.target);
+    }
+
+    if (e.target.classList.contains('box__ticket__checker')) {
+        let checker = e.target.parentElement.querySelector('.box__ticket__checkbox').checked;
+        let box = e.target.parentElement.parentElement;
+        console.log(checker);
+        console.log(box.querySelector('.box__ticket__id').innerText)
+        refreshStatusTicket(box.querySelector('.box__ticket__id').innerText, checker);
+        /* e.preventDefault(); */
     }
 })
 

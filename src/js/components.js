@@ -1,4 +1,4 @@
-import { createTicket, delTicket } from './xhr.js';
+import { createTicket, delTicket, refreshAllTicket } from './xhr.js';
 
 export function ticketCreate(i, text, time, status = false, description) {
     const box = document.querySelector('.boxF');
@@ -141,7 +141,8 @@ export class Messages {
                 /* console.log('Добавить тикет'); */
             };
             if (this.title == 'Изменить тикет') {
-                console.log('Изменить тикет');
+                refreshAllTicket(id, preview.value, description.value);
+                /* console.log('Изменить тикет'); */
             };
             if (this.title == 'Удалить тикет') {
                 delTicket(id);
