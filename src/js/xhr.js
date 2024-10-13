@@ -31,7 +31,7 @@ function responseHandler() {
 
 export function detAllTickets () {
     xhr.open('GET', 'http://localhost:7070/?method=allTickets');
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    /* xhr.setRequestHeader('Content-Type', 'application/json'); */
     xhr.send();
     let a;
     xhr.addEventListener('load', () => {
@@ -40,7 +40,7 @@ export function detAllTickets () {
         a.forEach(e => {
             let d = new Date(e.created);
             let m = add0(d.getUTCDate()) +"."+ add0((d.getUTCMonth()+1)) +"."+ dataChanger(d.getUTCFullYear()) + ' ' + add0(d.getUTCHours()) + ":" + add0(d.getUTCMinutes());
-            ticketCreate(e.name, m, e.status);
+            ticketCreate(e.name, m, e.status, e.description);
         });
     });
 }

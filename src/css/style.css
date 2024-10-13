@@ -1,3 +1,14 @@
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+  }
+
 .box {
     width: 90vw;
     /* min-height: 30vw; */
@@ -39,8 +50,20 @@
     margin-left: 0.5vw;
     box-sizing: border-box;
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin-bottom: 0.027vw;
+}
+.box__ticket__description {
+    /* flex-basis: 100%; */
+    /* border: 1px solid red; */
+    box-sizing: border-box;
+    margin-left: 2.5vw;
+    margin-right: 4vw;
+    margin-bottom: 0.3vw;
+    width: 80vw;
+    font-size: 1.15vw;
+    border-left: 2px solid black;
+    padding-left: 0.3vw;
 }
 
 .box__ticket__checker, .box__ticket__editor, .box__ticket__delete {
@@ -114,20 +137,10 @@
     font-size: 1.15vw;
     margin-top: 0.5vw;
     margin-bottom: 0.5vw;
+    cursor: pointer;
 }
 
 /* описание окна show-message */
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    border: 0;
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
 
 .messages-box {
     /* border-radius: 15px; */

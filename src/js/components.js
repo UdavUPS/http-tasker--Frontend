@@ -1,4 +1,4 @@
-export function ticketCreate(text, time, status = false) {
+export function ticketCreate(text, time, status = false, description) {
     const box = document.querySelector('.boxF');
 
     const ticket = document.createElement('div');
@@ -31,6 +31,11 @@ export function ticketCreate(text, time, status = false) {
     del.classList.add('box__ticket__delete');
     /* del.innerHTML = 'X'; */
 
+    const descr = document.createElement('div');
+    descr.classList.add('box__ticket__description');
+    descr.classList.add('visually-hidden');
+    descr.innerText = description;
+
     label.appendChild(checkbox);
     label.appendChild(checker);
     ticket.appendChild(label);
@@ -38,8 +43,19 @@ export function ticketCreate(text, time, status = false) {
     ticket.appendChild(timeO);
     ticket.appendChild(editor);
     ticket.appendChild(del);
+    ticket.appendChild(descr);
 
     box.appendChild(ticket);
+}
+
+export function showTicketDescription(elem) {
+    const box = elem.parentElement;
+    const des = box.querySelector('.box__ticket__description');
+    if (des.classList.contains('visually-hidden')) {
+        des.classList.remove('visually-hidden');
+    } else {
+        des.classList.add('visually-hidden');
+    }
 }
 
 

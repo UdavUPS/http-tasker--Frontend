@@ -1,4 +1,4 @@
-import { ticketCreate, Messages } from './components.js';
+import { ticketCreate, Messages, showTicketDescription } from './components.js';
 import { detAllTickets } from './xhr.js';
 const messagesBox = document.querySelector('.messages-box');
 const butAddTick = document.querySelector('.box__addBut');
@@ -9,7 +9,7 @@ const Win = new Messages();
 window.addEventListener('load', ()=>{detAllTickets()});
 
 
-/* ticketCreate('Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15', true); */
+ticketCreate('Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15', true, 'Тест описания карточки');
 /* ticketCreate('Проверка введенной задачи (генерируемая карточка)', '29.09.24 16:15); */
 
 
@@ -30,8 +30,8 @@ box.addEventListener('click', (e) => {
         messagesBox.append(Win.centralBlock());
     }
 
-/*     if (e.target.classList.contains('box__ticket__text')) {
-        detAllTickets();
-    } */
+    if (e.target.classList.contains('box__ticket__text')) {
+        showTicketDescription(e.target);
+    }
 })
 
