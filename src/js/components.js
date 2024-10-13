@@ -1,4 +1,4 @@
-export function ticketCreate(text, time) {
+export function ticketCreate(text, time, status = false) {
     const box = document.querySelector('.boxF');
 
     const ticket = document.createElement('div');
@@ -10,6 +10,7 @@ export function ticketCreate(text, time) {
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.classList.add('box__ticket__checkbox');
+    checkbox.checked = status;
 
     const checker = document.createElement('div');
     checker.classList.add('box__ticket__checker');
